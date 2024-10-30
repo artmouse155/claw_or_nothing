@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciuy8cmljnkdk"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_qakyl"]
+[ext_resource type="Texture2D" uid="uid://d24cly6dabh4t" path="res://Assets/icon.svg" id="2_axyoc"]
+[ext_resource type="Script" path="res://Scripts/GameScenes/game_scene.gd" id="2_m184y"]
+[ext_resource type="Script" path="res://Scripts/transition_screen.gd" id="3_b7qyp"]
+
+[node name="Main" type="Control" node_paths=PackedStringArray("transition_screen")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qakyl")
+transition_screen = NodePath("TransitionScreen")
+
+[node name="DummyScene" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("2_m184y")
+
+[node name="TransitionScreen" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_axyoc")
+script = ExtResource("3_b7qyp")
+
+[node name="Label" type="Label" parent="TransitionScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -71.0
+offset_right = 36.5
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "LOADING"
