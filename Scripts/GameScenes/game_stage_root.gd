@@ -3,6 +3,11 @@ extends GameScene
 ## The root node for displaying game stages.
 class_name GameStageRoot
 
+# NOTE:
+# Let's try to use this for the structure of communicating between the level and the root:
+# https://gameprogrammingpatterns.com/observer.html
+# Basically, the level emits signals and the root catches them and updates the UI and level variables accordingly.
+
 @export var level_viewport: SubViewport
 
 var current_level = -1
@@ -29,3 +34,7 @@ func get_current_level():
 
 func main_menu():
 	Game.load_main_menu()
+
+func update_UI(element, value):
+	pass
+	#TODO: Do something
