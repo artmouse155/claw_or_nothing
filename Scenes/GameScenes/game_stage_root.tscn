@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfpwgku3py1i2"]
+
+[ext_resource type="Script" path="res://Scripts/GameScenes/game_stage_root.gd" id="1_uidgy"]
+
+[node name="GameStageRoot" type="Control" node_paths=PackedStringArray("level_viewport")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uidgy")
+level_viewport = NodePath("LevelViewportContainer/LevelViewport")
+
+[node name="LevelViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="LevelViewport" type="SubViewport" parent="LevelViewportContainer"]
+size = Vector2i(1152, 648)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "THIS IS THE UI!!!!"
+
+[node name="main_menu_button" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 970.0
+offset_top = 597.0
+offset_right = 1127.0
+offset_bottom = 628.0
+text = "back to main menu"
+
+[node name="Label2" type="Label" parent="UI"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 79.0
+offset_bottom = 47.0
+text = "Health: 45"
+
+[connection signal="pressed" from="UI/main_menu_button" to="." method="main_menu"]

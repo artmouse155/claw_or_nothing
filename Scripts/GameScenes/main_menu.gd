@@ -1,7 +1,7 @@
 extends GameScene
 
 func start_game():
-	Game.load_stage_1()
+	Game.load_level(0)
 
 func go_to_credits():
 	Game.load_credits()

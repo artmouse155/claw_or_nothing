@@ -51,3 +51,10 @@ func get_current_game_scene():
 			return child
 	print("No Scene Found!")
 	return null
+
+
+## Function to load a certain level.
+func load_level(level_num):
+	switch_scene(Game.Scenes.GAME_STAGE_ROOT)
+	var game_stage_root: GameStageRoot = get_current_game_scene()
+	game_stage_root.load_level(0)
