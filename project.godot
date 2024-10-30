@@ -14,7 +14,7 @@ config/name="Claw or Nothing"
 config/tags=PackedStringArray("game_jam")
 run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://Assets/icon.svg"
+config/icon="res://Assets/game_icon_rounded.png"
 
 [autoload]
 
