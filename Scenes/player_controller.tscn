@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://gwuke0kpnb6q"]
+
+[ext_resource type="Texture2D" uid="uid://d24cly6dabh4t" path="res://Assets/icon.svg" id="1_ywgn7"]
+[ext_resource type="Script" path="res://Scripts/player_controller.gd" id="2_o1sq8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pfuji"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2a4jk"]
+size = Vector2(32, 32)
+
+[node name="PlayerController" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_pfuji")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("2_o1sq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2a4jk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ywgn7")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.0
+offset_top = 74.0
+offset_right = 33.0
+offset_bottom = 97.0
+grow_horizontal = 2
+text = "SPEED: 0"
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
