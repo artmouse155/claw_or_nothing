@@ -7,6 +7,7 @@ const GRAVITY : float = 4.0
 const BOUNCE_STRENGTH : float = 1.6
 const COLLISION_DAMAGE_MIN : float = 20.0
 var prev_velocity : Vector2
+var thrust_enabled = true
 var speed : float:
 	get:
 		return velocity.length()
@@ -25,17 +26,19 @@ func is_equal_approx_v2(v1 : Vector2, v2: Vector2) -> bool:
 func _physics_process(delta : float) -> void:
 	var a = Input.is_action_pressed
 	var moving_vertical : bool = false
-	if a.call("left"):
-		velocity += (Vector2.LEFT * THRUST * delta)
-	if a.call("right"):
-		velocity += (Vector2.RIGHT * THRUST * delta)
-	if a.call("up"):
-		moving_vertical = true
-		velocity += (Vector2.UP * THRUST * delta)
-	if a.call("down"):
-		moving_vertical = true
-		velocity += (Vector2.DOWN * THRUST * delta)
-	velocity *= 1 - (WATER_RESISTANCE * delta)
+	thrust_enabled = (position.y > 0)
+	if thrust_enabled:
+		if a.call("left"):
+			velocity += (Vector2.LEFT * THRUST * delta)
+		if a.call("right"):
+			velocity += (Vector2.RIGHT * THRUST * delta)
+		if a.call("up"):
+			moving_vertical = true
+			velocity += (Vector2.UP * THRUST * delta)
+		if a.call("down"):
+			moving_vertical = true
+			velocity += (Vector2.DOWN * THRUST * delta)
+		velocity *= 1 - (WATER_RESISTANCE * delta)
 	#if abs(velocity.y) <= 2.0: velocity += GRAVITY * delta
 	if not moving_vertical: velocity.y += GRAVITY
 	if not is_equal_approx_v2(velocity, Vector2.ZERO):
