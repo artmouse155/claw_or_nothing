@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqxm5xqjsi7km"
-path="res://.godot/imported/tilesheet.png-2426d6df16a71dddbe965aaeb2dee310.ctex"
+uid="uid://dhcqprtukbfvp"
+path="res://.godot/imported/kelp.png-40fb79692a736d422a22168da84135e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tilesheet.png"
-dest_files=["res://.godot/imported/tilesheet.png-2426d6df16a71dddbe965aaeb2dee310.ctex"]
+source_file="res://Assets/kelp.png"
+dest_files=["res://.godot/imported/kelp.png-40fb79692a736d422a22168da84135e3.ctex"]
 
 [params]
 

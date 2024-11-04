@@ -24,6 +24,11 @@ position = Vector2(16, 4)
 scale = Vector2(0.403226, 0.403226)
 texture = ExtResource("3_g8tvh")
 
+[node name="RigidBody2D" type="RigidBody2D" parent="ClawMask/Claw"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClawMask/Claw/RigidBody2D"]
+polygon = PackedVector2Array(9, -69.5, -10, -69.5, -10, 35.7, -30.8, 56.5, -31, 61.3, -23, 69.3, -18.1, 69.5, -0.4, 52.7, 18, 69.3, 22.8, 69.5, 30.8, 61.5, 31, 56.5, 9, 33.6)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2a4jk")
 

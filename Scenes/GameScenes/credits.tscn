@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj4akqt0km1si"]
+[gd_scene load_steps=3 format=3 uid="uid://dj4akqt0km1si"]
 
 [ext_resource type="Script" path="res://Scripts/GameScenes/credits.gd" id="1_p7pgm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0p8gu"]
+font_size = 32
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -11,8 +14,43 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p7pgm")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -63.5
+offset_right = 51.5
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Created by
+
+artmouse155
+and 
+bmudd
+"
+label_settings = SubResource("LabelSettings_0p8gu")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Credits"
+offset_left = 950.0
+offset_top = 596.0
+offset_right = 1133.0
+offset_bottom = 627.0
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="back_to_menu"]

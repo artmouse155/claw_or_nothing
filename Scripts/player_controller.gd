@@ -65,8 +65,9 @@ func _physics_process(delta : float) -> void:
 	if not is_equal_approx_v2(velocity, Vector2.ZERO):
 		prev_velocity = velocity
 	
-	limit_vel()
-	move_and_slide()
+	if not Game.paused:
+		limit_vel()
+		move_and_slide()
 	
 	if get_slide_collision_count():
 		#print("collision v: ", prev_velocity)
@@ -84,6 +85,7 @@ func take_damage() -> void:
 	const FLASH_TIME : float = 0.2
 	#print("speed: ", speed)
 	if speed > COLLISION_DAMAGE_MIN:
+		print("took damage!")
 		took_damage.emit(1)
 		
 	# Flash color
@@ -99,3 +101,6 @@ func take_damage() -> void:
 
 	
 	return
+
+#func begin_lowering_claw() -> void:
+	
