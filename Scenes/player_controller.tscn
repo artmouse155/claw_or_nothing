@@ -1,13 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://gwuke0kpnb6q"]
+[gd_scene load_steps=5 format=3 uid="uid://gwuke0kpnb6q"]
 
 [ext_resource type="Texture2D" uid="uid://d24cly6dabh4t" path="res://Assets/icon.svg" id="1_ywgn7"]
 [ext_resource type="Script" path="res://Scripts/player_controller.gd" id="2_o1sq8"]
+[ext_resource type="Texture2D" uid="uid://byxf0vd64f3p2" path="res://Assets/claw.png" id="3_g8tvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2a4jk"]
 size = Vector2(32, 32)
 
 [node name="PlayerController" type="CharacterBody2D"]
 script = ExtResource("2_o1sq8")
+
+[node name="ClawMask" type="ColorRect" parent="."]
+clip_children = 1
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 51.0
+pivot_offset = Vector2(16, 0)
+
+[node name="Claw" type="Sprite2D" parent="ClawMask"]
+unique_name_in_owner = true
+position = Vector2(16, 4)
+scale = Vector2(0.403226, 0.403226)
+texture = ExtResource("3_g8tvh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2a4jk")
